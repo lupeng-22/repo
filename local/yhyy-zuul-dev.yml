@@ -64,11 +64,11 @@ server:
   port: 8060
   tomcat:
     max-threads: 3000
-mq:
-  suffix: _178
-  url: http://onsaddr-internet.aliyun.com/rocketmq/nsaddr4client-internet
-  accessKey: LTAIp2gpRJI0gvKu
-  secretKey: AfhWdaEw5zrIx9d08Z5058J4QCYEnv
+#mq:
+#  suffix: _178
+#  url: http://onsaddr-internet.aliyun.com/rocketmq/nsaddr4client-internet
+#  accessKey: LTAIp2gpRJI0gvKu
+#  secretKey: AfhWdaEw5zrIx9d08Z5058J4QCYEnv
 
 #各端是否启动header
 pcHeader: 0
