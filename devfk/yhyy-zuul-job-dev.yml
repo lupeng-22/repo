@@ -1,0 +1,27 @@
+spring:
+  application:
+    name: yhyy-zuul-job
+  redis:
+    host: r-uf687fd53ab37ef4.redis.rds.aliyuncs.com
+    password: S6PRNhepnmNY3Msr
+    port: 6379
+    database: 0
+    timeout: 666
+    pool:
+      max-active: 2000
+      max-wait: 1000
+      min-idle: 36
+      max-idle: 66
+eureka:
+  client:
+    healthcheck:
+      enabled: true
+    serviceUrl:
+      defaultZone: http://192.168.2.90:8669/eureka/,http://192.168.2.99:8669/eureka/
+  instance:
+    lease-renewal-interval-in-seconds: 5
+    lease-expiration-duration-in-seconds: 10
+    prefer-ip-address: true
+    instance-id: ${spring.cloud.client.ipAddress}:${server.port}
+server:
+  port: 8061

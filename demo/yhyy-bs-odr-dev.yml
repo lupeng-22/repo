@@ -1,0 +1,145 @@
+spring:
+  application: 
+    name: yhyy-bs-odr
+  datasource:                           # Mabtis数据源，用于主库操作
+    druid:
+      url: jdbc:mysql://rm-uf61nziquk087s663.mysql.rds.aliyuncs.com:3306/malldb
+      driver-class-name: com.mysql.jdbc.Driver
+      username: dev_root
+      password: ^mDlTEpumFuhyGp!
+      #url: jdbc:mysql://drds42g89fs73g0z.drds.aliyuncs.com:3306/drds_bj_scyhyh20180130
+      #driver-class-name: com.mysql.jdbc.Driver
+      #username: drds_bj_scyhyh20180130
+      #password: hFeAiWfv2X8nGu4Z
+      initial-size: 20  #初始化连接数
+      max-active: 100  #最大连接池数量
+      min-idle: 5  #最小连接池数量
+      max-wait: 60000  #获取连接时最大等待时间
+      time-between-eviction-runs-millis: 60000
+      min-evictable-idle-time-millis: 30000  #连接保持空闲而不被驱逐的最小时间
+      validation-query: SELECT 'x'  #用来检测连接是否有效的SQL
+      filters: stat,slf4j
+      test-while-idle: true
+      test-on-borrow: false
+      test-on-return: false
+      stat-view-servlet:  #关闭监控页面
+        enabled: false
+      web-stat-filter:  #关闭采集数据功能
+        enabled: false
+  redis:
+    host: r-uf658c3018ab0824.redis.rds.aliyuncs.com
+    password: dWkSfAIW53CJRLUy
+    port: 6379
+    database: 0
+    pool:
+      max-active: 8
+      max-wait: -1
+      max-idle: 8
+      min-idle: 0
+    timeout: 0
+  zipkin:
+    base-url: http://172.19.173.3:9666
+  sleuth:
+    sampler:
+      percentage: 1
+
+management:
+  security:
+    enabled: false
+  context-path: /aaaaaaaa
+mybatis:
+  check-config-location: true                          #配置校验（true/false）
+  config-location: classpath:mybatis-config.xml         #mybatis配置文件
+  mapper-locations: classpath*:com/yhyy/mapper/*.xml    #mapper xml配置路径
+
+logging:
+  level:
+    root:  WARN
+    com:
+      yhyy:
+        consumer: INFO
+        controller: INFO
+        service: INFO
+        dao: INFO
+
+#service discovery url
+eureka:
+  client:
+    healthcheck:
+      enabled: true
+    serviceUrl:
+      defaultZone: http://172.19.173.115:8669/eureka/
+  instance:
+    lease-renewal-interval-in-seconds: 5
+    lease-expiration-duration-in-seconds: 10
+    prefer-ip-address: true
+server:
+  port: 8171
+  connection-timeout: 60000 # 连接超时时间
+  tomcat:
+    max-threads: 60000
+    max-connections: 60000
+    max-http-post-size: 10000000
+    accept-count: 20000
+    min-spare-threads: 100
+# order 物流回调路径 订单域名 order.yuehuayueyou.com   testorder.yuehuayueyou.com 101.132.147.14
+order:
+  prefix: https://t100api.yuepingtai.com/odr/v1/logistics/callback
+# MQ后缀
+mq:
+  suffix: _demo
+# MQ参数
+access_key: LTAIp2gpRJI0gvKu
+secret_key: AfhWdaEw5zrIx9d08Z5058J4QCYEnv
+onsaddr: http://onsaddr-internet.aliyun.com/rocketmq/nsaddr4client-internet
+# 退款回调
+odr_refund_callback_topic: refund_cb_demo
+odr_refund_callback_consumer_id: CID_refund_cb_demo
+odr_refund_callback_tag: refund_cb_tag_demo
+# 支付回调
+odr_pay_callback_topic: pay_cb_demo
+odr_pay_callback_consumer_id: CID_pay_cb_demo
+odr_pay_callback_tag: pay_cb_tag_demo
+# 生成订单
+save_order_topic: SaveOrder_demo
+save_order_consumer_id: CID_saveOrder_demo
+save_order_tag: OrderTag_demo
+#增加销量search
+search_topic: yhyy-search_demo
+search_producer_id: PID_SOLRINDEX_demo
+search_tag: product_sell_num_demo
+# 升级
+upgrade_topic: UserUpgrade_demo
+upgrade_producer_id: PID_userUpgrade_demo
+upgrade_tag: userUpgradeTag_demo
+# 确认收货分账
+odr_split_topic: pay_split_demo
+odr_split_producer_id: PID_pay_split_demo
+odr_split_tag: pay_split_tag_demo
+# 退款
+odr_refund_topic: refund_demo
+odr_refund_producer_id: PID_refund_demo
+odr_refund_tag: refund_tag_demo
+# push
+push_topic: yhyy_push_demo
+push_producer_id: PID_push_demo
+push_tag: PUSHNOTIFICATION_demo
+# 库存
+update_inventory_topic: updateInventory_demo
+update_inventory_producer_id: PID_updateInventory_demo
+update_inventory_tag: updateInventory_tag_demo
+# 调用区块链url
+tx-url: http://192.168.2.237:9005/api/v1/rest/blockchain/putBlock
+# 区块链开关
+tx-msg-send-close: true
+# 区块链fcn
+fcn: createObj
+
+#关闭应用
+endpoints:
+  shutdown:
+    enabled: true
+    sensitive: false
+
+#是否查询主库开关
+is_query_master: false

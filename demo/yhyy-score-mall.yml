@@ -1,0 +1,115 @@
+server:
+  port: 8547
+
+spring:
+  application:
+    name: yhyy-score-mall
+  http:
+    multipart:
+      maxFileSize: 10Mb
+      maxRequestSize: 100Mb
+  datasource:
+    druid:
+      url: jdbc:mysql://rm-uf61nziquk087s663.mysql.rds.aliyuncs.com:3306/malldb
+      driver-class-name: com.mysql.jdbc.Driver
+      username: dev_root
+      password: ^mDlTEpumFuhyGp!
+      initial-size: 20
+      max-active: 100
+      min-idle: 5
+      max-wait: 60000
+      time-between-eviction-runs-millis: 60000
+      min-evictable-idle-time-millis: 30000
+      validation-query: SELECT 'x'
+      filters: stat,slf4j
+      test-while-idle: true
+      test-on-borrow: false
+      test-on-return: false
+      stat-view-servlet:  #关闭监控页面
+        enabled: true
+      web-stat-filter:  #关闭采集数据功能
+        enabled: false
+  redis:
+    host: r-uf658c3018ab0824.redis.rds.aliyuncs.com
+    password: dWkSfAIW53CJRLUy
+    port: 6379
+    database: 0
+    pool:
+      max-active: 8
+      max-wait: -1
+      max-idle: 8
+      min-idle: 0
+    timeout: 0
+  zipkin:
+    base-url: http://localhost:8666
+  sleuth:
+    sampler:
+      percentage: 0.01
+mybatis:
+  config-location: classpath:mybatis-config.xml
+  mapper-locations: classpath*:mapper/**/*.xml
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://172.19.173.115:8669/eureka/
+  instance:
+    prefer-ip-address: true
+
+management:
+  security:
+    enabled: false
+  context-path: /nonono
+
+# 短信通道 1极光 2华信
+smsWay:
+  way: 1
+
+# AWS
+SMS:
+  SMS_APP_KEY: coolbit
+  SMS_MASTER_SECRET: coolbit123
+  SMS_CUSTOMER_ID: 2847
+
+# 极光推送
+jpush:
+  PUSH_APP_KEY: 60ccdffd70d199f6ce1df92b
+  PUSH_MASTER_SECRET: 016b63f47324c6a949812826
+  #是否开启短信发送 1:开启 0:关闭
+  isSendSmsCode: 1
+  #短信验证码 1:四位验证码  2:六位验证码
+  smsCode: 1
+  #短信发送限制次数  一分钟 两次
+  smsCodeTime: 2
+
+IM:
+  #token有两种，管理员token和用户token。管理员token使用grant_type=client_credentials,用户token使用grant_type=password
+  GRANT_TYPE: client_credentials
+  #客户端id
+  CLIENT_ID: YXA6x22nMEnEEeic3PN_p1x5fg
+  #客户端密钥
+  CLIENT_SECRET: YXA6sCR4b_kmfeCyUBNB_jzRF9SO1mI
+  #公司组织号
+  ORG_NAME: 1182180427253101
+  #app名称
+  APP_NAME: coolbit-test
+
+rsa:
+  publicKey: MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCfxr6IGzuHhgzN/wLPqVZxZw+zRdnAUO7VR1bRz3R7WtQNYoNwfaNQHX6ceBzX4Bx7S01RDLfVwxnJM9wUL2hdy9Da1sxQGtWyjUd4zpr6hTXIMyX67sMm0FNkzyVxz+KskdXxYzR3+0HzIOmoj/tcR3CufWiYwLAEG0GZ0s4j6wIDAQAB
+  privateKey: MIICdgIBADANBgkqhkiG9w0BAQEFAASCAmAwggJcAgEAAoGBAJ/GvogbO4eGDM3/As+pVnFnD7NF2cBQ7tVHVtHPdHta1A1ig3B9o1Adfpx4HNfgHHtLTVEMt9XDGckz3BQvaF3L0NrWzFAa1bKNR3jOmvqFNcgzJfruwybQU2TPJXHP4qyR1fFjNHf7QfMg6aiP+1xHcK59aJjAsAQbQZnSziPrAgMBAAECgYAY+NQgq7jzJpVrwNaspDfZg5UlnN46u6uIdBzyr+zxtrF74hDPDSPwSpvWUsOXTfTFpHBSIZ298D9gfhWApiQ2fU+b5n4BqEurY5wq54c9kDPruTU9N3cZRA7/VyOKTayttD+7nvnmuTKryLG3Shmg1tqOAKXSHJGX4QdgafIU0QJBANsPFjjhWmP07Jp2/jjj+xrkQTBKNaB88zh4XWcd1RJD/nvWg0wKJUWokkipyLgNlUCa/r/SNmAxAp0M83/Yy4MCQQC6uGP3uAVgkfRHJpc76ZsInChJI4oBafKiHvlbaVKVAdds9hxr89JRyyOg5znL9ZoHH/F9wrPLGOZJEJllENF5AkEAtCfCNOFQv2gMtjQqe4szVjhmTFqbo/Ne7BBBcK6eLzlwL1SKAp1Nbe5m8A+CHaw+FTXjUMqHIbDs31BpablYFQJAOwHgnb1q/ZzCbOXWL1ng47StyodPqqi3w+Iz/V5oeayOTuHsE3WHRtACn2vTSRCBr7S5lXu9Y/and/ml8FmDSQJAefbHBjZv3HETnG0mYU+7gFgGC5kG6OJ4NbE7EDdSkG3RxSanc8bmfghZoBGfV8AmGRCLeNHDTQWJSSnIW96xnw==
+#华信短信
+huaxin:
+  account:  8C00034
+  password: 8C0003422
+
+#区块链url
+BLOCK_URL:  http://13.114.42.175:9005/api/v1/rest/blockchain/putBlock
+
+feignclient:
+  acg:  54.223.193.228:8533
+  acc:  54.223.193.228:8532
+  trs:  54.223.193.228:8532
+  msv:  54.223.193.228:8573
+feign:
+  hystrix:
+    enabled: true
