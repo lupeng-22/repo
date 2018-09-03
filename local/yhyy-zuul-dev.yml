@@ -65,7 +65,7 @@ server:
   tomcat:
     max-threads: 3000
 mq:
-  suffix: _178
+  suffix: _test
   url: http://onsaddr-internet.aliyun.com/rocketmq/nsaddr4client-internet
   accessKey: LTAIBGdmNGhrKQoQ
   secretKey: h47YwjejApauKcfbyXZMhguYk05WTM
