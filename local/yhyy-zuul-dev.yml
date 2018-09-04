@@ -67,8 +67,6 @@ server:
 mq:
   suffix: _test
   url: http://onsaddr-internet.aliyun.com/rocketmq/nsaddr4client-internet
-  accessKey: 131323
-  secretKey: 4575645756
 
 #各端是否启动header
 pcHeader: 0
