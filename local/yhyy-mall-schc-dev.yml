@@ -3,7 +3,7 @@ spring:
     name: yhyy-mall-schc
   datasource:
     druid:
-      url: jdbc:mysql://localhost:3306/093-test?characterEncoding=utf-8&allowMultiQueries=true
+      url: jdbc:mysql://localhost:3306/0903-test?characterEncoding=utf-8&allowMultiQueries=true
       driver-class-name: com.mysql.jdbc.Driver
       username: root
       password: 123456

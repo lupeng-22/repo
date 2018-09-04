@@ -3,7 +3,7 @@ spring:
     name: yhyy-bs-odr
   datasource:                           # Mabtis数据源，用于主库操作
     druid:
-      url: jdbc:mysql://localhost:3306/093-test
+      url: jdbc:mysql://localhost:3306/0903-test
       driver-class-name: com.mysql.jdbc.Driver
       username: root
       password: 123456
