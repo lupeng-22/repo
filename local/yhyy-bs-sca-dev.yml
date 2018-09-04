@@ -3,10 +3,10 @@ spring:
     name: yhyy-bs-sca
   datasource:                           # Mabtis数据源，用于主库操作
     druid:
-      url: jdbc:mysql://101.132.182.194:9899/dbyscwstx
+      url: jdbc:mysql://localhost:3306/0903-test
       driver-class-name: com.mysql.jdbc.Driver
       username: root
-      password: ArM%BG@u@mhWv0TA
+      password: 123456
       initial-size: 20  #初始化连接数
       max-active: 100  #最大连接池数量
       min-idle: 5  #最小连接池数量
@@ -24,8 +24,7 @@ spring:
         enabled: false
 
   redis:
-    host: 192.168.1.136
-    password:
+    host: localhost
     port: 6379
     database: 0
     pool:
@@ -34,19 +33,8 @@ spring:
       max-idle: 8
       min-idle: 0
     timeout: 0
-  redis2:
-    host: 192.168.1.136
-    password:
-    port: 6379
-    database: 0
-    pool:
-      max-active: 8
-      max-wait: -1
-      max-idle: 8
-      min-idle: 0
-    timeout: 0
-  zipkin:
-    base-url: http://192.168.1.178:9666
+#  zipkin:
+#    base-url: http://192.168.1.178:9666
     #base-url: http://101.132.158.228:9666
   sleuth:
     sampler:
@@ -80,7 +68,7 @@ eureka:
     healthcheck:
       enabled: true
     serviceUrl:
-      defaultZone: http://192.168.1.178:8669/eureka/
+      defaultZone: http://localhost:8669/eureka/
       #defaultZone: http://101.132.158.228:8669/eureka/
   instance:
     lease-renewal-interval-in-seconds: 5
@@ -90,7 +78,7 @@ server:
   port: 8081
 # MQ后缀
 mq:
-  suffix: _178
+  suffix: _zt_test
   #生成订单配置--生成者
 mq-save-order-topic: SaveOrder
 mq-save-order-producer-id: PID_saveOrder
@@ -101,8 +89,6 @@ mq-cartitem-update-consumer-id: CID_CartItemUpdate
 mq-cartitem-update-tag: CartItemTag
 
 mq-ONSAddr: http://onsaddr-internet.aliyun.com/rocketmq/nsaddr4client-internet
-mq-accessKey: LTAIp2gpRJI0gvKu
-mq-secretKey: AfhWdaEw5zrIx9d08Z5058J4QCYEnv
 #0:不能自提(缺省)，1：可以自提
 cart-isCanZiTi: 1
 #---
