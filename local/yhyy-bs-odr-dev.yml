@@ -36,7 +36,7 @@ spring:
 #    timeout: 0
 
   zipkin:
-    base-url: http://192.168.1.178:9666
+    base-url: http://localhost:9666
     #base-url: http://101.132.158.228:9666
   sleuth:
     sampler:
