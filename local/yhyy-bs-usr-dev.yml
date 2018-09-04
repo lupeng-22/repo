@@ -6,10 +6,10 @@ spring:
       maxFileSize: 10Mb
   datasource:                           # Mabtis数据源，用于主库操作
     # 使用druid数据源
-      url: jdbc:mysql://101.132.182.194:9899/dbyscwstx
+      url: jdbc:mysql://localhost:3306/0903-test
       driver-class-name: com.mysql.jdbc.Driver
       username: root
-      password: ArM%BG@u@mhWv0TA
+      password: 123456
       initial-size: 20  #初始化连接数
       max-active: 100  #最大连接池数量
       min-idle: 5  #最小连接池数量
@@ -26,7 +26,7 @@ spring:
       web-stat-filter:  #关闭采集数据功能
         enabled: false
   redis:
-    host: 192.168.1.136
+    host: localhost
     password:
     port: 6379
     database: 0
@@ -37,8 +37,8 @@ spring:
       min-idle: 0
     timeout: 0
 
-  zipkin:
-    base-url: http://192.168.1.178:9666
+#  zipkin:
+#    base-url: http://192.168.1.178:9666
     #base-url: http://101.132.158.228:9666
   sleuth:
     sampler:
@@ -69,7 +69,7 @@ eureka:
     healthcheck:
       enabled: true
     serviceUrl:
-      defaultZone: http://192.168.1.178:8669/eureka/
+      defaultZone: http://localhost:8669/eureka/
       #defaultZone: http://101.132.158.228:8669/eureka/
   instance:
     lease-renewal-interval-in-seconds: 5
@@ -80,7 +80,7 @@ server:
   tomcat:
     maxHttpPostSize: 0
 mq:
-  suffix: _178
+  suffix: _zt_test
 identity:
   #merchNo: _000194502820238
   merchNo: _001080000000045
@@ -114,27 +114,25 @@ tx-url: http://47.100.12.56:9005/api/v1/rest/blockchain/putBlock
 tx-msg-send-close: false
 # 升级
 onsaddr: http://onsaddr-internet.aliyun.com/rocketmq/nsaddr4client-internet
-upgrade_topic: UserUpgrade_178
-upgrade_consumer_id: CID_userUpgrade_178
-upgrade_tag: userUpgradeTag_178
-search_topic: yhyy-search_178
-search_producer_id: PID_SOLRINDEX_178
-search_tag: SEARCH_UPDATE_CLONE_178
-push_topic: yhyy_push_178
-push_producer_id: PID_push_178
-push_tag: PUSHNOTIFICATION_178
-accessKey: LTAIp2gpRJI0gvKu
-secretKey: AfhWdaEw5zrIx9d08Z5058J4QCYEnv
+upgrade_topic: UserUpgrade_zt_test
+upgrade_consumer_id: CID_userUpgrade_zt_test
+upgrade_tag: userUpgradeTag_zt_test
+search_topic: yhyy-search_zt_test
+search_producer_id: PID_SOLRINDEX_zt_test
+search_tag: SEARCH_UPDATE_CLONE_zt_test
+push_topic: yhyy_push_zt_test
+push_producer_id: PID_push_zt_test
+push_tag: PUSHNOTIFICATION_zt_test
 # 活积分升级
-upgrade_ac_topic: UserUpgradeAc_178
-upgrade_ac_consumer_id: CID_userUpgradeAc_178
-upgrade_ac_producer_id: PID_userUpgradeAc_178
-upgrade_ac_tag: userUpgradeAcTag_178
+upgrade_ac_topic: UserUpgradeAc_zt_test
+upgrade_ac_consumer_id: CID_userUpgradeAc_zt_test
+upgrade_ac_producer_id: PID_userUpgradeAc_zt_test
+upgrade_ac_tag: userUpgradeAcTag_zt_test
 # 活积分升级 回调积分项目消息
-upgrade_ac_cb_topic: UserUpgradeAcCb_178
-upgrade_ac_cb_consumer_id: CID_userUpgradeAcCb_178
-upgrade_ac_cb_producer_id: PID_userUpgradeAcCb_178
-upgrade_ac_cb_tag: userUpgradeAcCbTag_178
+upgrade_ac_cb_topic: UserUpgradeAcCb_zt_test
+upgrade_ac_cb_consumer_id: CID_userUpgradeAcCb_zt_test
+upgrade_ac_cb_producer_id: PID_userUpgradeAcCb_zt_test
+upgrade_ac_cb_tag: userUpgradeAcCbTag_zt_test
 
 # 固定服务中心
 operate_center_fixed: false
@@ -166,15 +164,15 @@ disable_address: 新疆
 disable_address_no: 65
 
 #给积分推送消息MQ
-usr_upgrade_topic: YhyyUsrUpgrade_178
-usr_upgrade_producer_id: PID_YhyyUsrUpgrade_178
-usr_upgrade_tag: YhyyUsrUpgradeTag_178
+usr_upgrade_topic: YhyyUsrUpgrade_zt_test
+usr_upgrade_producer_id: PID_YhyyUsrUpgrade_zt_test
+usr_upgrade_tag: YhyyUsrUpgradeTag_zt_test
 
 # 更新用户信息通知钱包
-ac_user_receive_topic: AcUserReceive_178
-ac_user_receive_consumer_id: CID_AcUserReceive_178
-ac_user_receive_producer_id: PID_AcUserReceive_178
-ac_user_receive_tag: AcUserReceiveTag_178
+ac_user_receive_topic: AcUserReceive_zt_test
+ac_user_receive_consumer_id: CID_AcUserReceive_zt_test
+ac_user_receive_producer_id: PID_AcUserReceive_zt_test
+ac_user_receive_tag: AcUserReceiveTag_zt_test
 
 #查询加密后的手机号和证件号码 false（未加密的） true （加密后的）
 gain_encrypt_field: true
