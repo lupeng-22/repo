@@ -77,6 +77,13 @@ eureka:
     prefer-ip-address: true
 server:
   port: 8171
+  connection-timeout: 60000 # 连接超时时间
+  tomcat:
+    max-threads: 60000
+    max-connections: 60000
+    max-http-post-size: 10000000
+    accept-count: 20000
+    min-spare-threads: 100
 # order 物流回调路径  订单域名 order.yuehuayueyou.com   testorder.yuehuayueyou.com 101.132.147.14
 order:
   prefix: http://101.132.158.228:8060/odr/v1/logistics/callback
