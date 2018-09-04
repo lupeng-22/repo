@@ -23,17 +23,16 @@ spring:
       web-stat-filter:  #关闭采集数据功能
         enabled: false
 
-#  redis:
-#    host: 106.15.207.165
-#    password: wukmpugkfkyHoMer
-#    port: 6379
-#    database: 0
-#    pool:
-#      max-active: 8
-#      max-wait: -1
-#      max-idle: 8
-#      min-idle: 0
-#    timeout: 0
+  redis:
+    host: localhost
+    port: 6379
+    database: 0
+    pool:
+      max-active: 8
+      max-wait: -1
+      max-idle: 8
+      min-idle: 0
+    timeout: 0
 
   zipkin:
     base-url: http://localhost:9666
