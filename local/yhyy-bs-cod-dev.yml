@@ -3,10 +3,10 @@ spring:
     name: yhyy-bs-cod
   datasource:                           # Mabtis数据源，用于主库操作
     druid:
-      url: jdbc:mysql://101.132.182.194:9899/dbyscwstx
+      url: jdbc:mysql://localhost:3306/0903-test
       driver-class-name: com.mysql.jdbc.Driver
       username: root
-      password: ArM%BG@u@mhWv0TA
+      password: 123456
       initial-size: 20  #初始化连接数
       max-active: 100  #最大连接池数量
       min-idle: 5  #最小连接池数量
@@ -24,8 +24,8 @@ spring:
         enabled: false
 
   redis:
-      cluster:
-        nodes: 192.168.1.139:6479,192.168.1.138:6479,192.168.1.137:6479
+      host: localhost
+      port: 6379
       database: 0
       pool:
         max-active: 8
@@ -34,8 +34,8 @@ spring:
         min-idle: 0
       timeout: 0
 
-  zipkin:
-    base-url: http://192.168.1.178:9666
+#  zipkin:
+#    base-url: http://192.168.1.178:9666
     #base-url: http://101.132.158.228:9666
   sleuth:
     sampler:
@@ -69,7 +69,7 @@ eureka:
     healthcheck:
       enabled: true
     serviceUrl:
-      defaultZone: http://192.168.1.178:8669/eureka/
+      defaultZone: http://localhost:8669/eureka/
       #defaultZone: http://101.132.158.228:8669/eureka/
   instance:
     lease-renewal-interval-in-seconds: 5
@@ -79,14 +79,12 @@ server:
   port: 8181
 # MQ后缀
 mq:
-  suffix: _178
+  suffix: _zt_test
 #会员专区和引流的四个商品ID
 yinliuProductIds: 1,2,3,4
 vipProductIds: 1,2,3,4
 
 mq_ONSAddr: http://onsaddr-internet.aliyun.com/rocketmq/nsaddr4client-internet
-mq_accessKey: LTAIp2gpRJI0gvKu
-mq_secretKey: AfhWdaEw5zrIx9d08Z5058J4QCYEnv
 product_topic: yhyy-search
 product_producer_id: PID_SOLRINDEX
 cartitem_topic: CartItemUpdate
