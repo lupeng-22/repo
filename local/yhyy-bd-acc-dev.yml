@@ -3,9 +3,9 @@ spring:
     name: yhyy-bd-acc
   datasource:                           # Mabtis数据源，用于主库操作
     druid: 
-      url: jdbc:mysql://172.19.204.171:4000/testdb?useUnicode=true&characterEncoding=utf8&useSSL=true
-      username: test
-      password: test
+      url: jdbc:mysql://localhost:3306/0903-test
+      username: root
+      password: 123456
       driver-class-name: com.mysql.jdbc.Driver
       initial-size: 20
       max-active: 100
@@ -40,7 +40,7 @@ eureka:
     healthcheck:
       enabled: true
     serviceUrl:
-      defaultZone: http://192.168.1.178:8669/eureka/
+      defaultZone: http://localhost:8669/eureka/
   instance:
     lease-renewal-interval-in-seconds: 5
     lease-expiration-duration-in-seconds: 10
