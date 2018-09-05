@@ -9,7 +9,7 @@ spring:
       maxFileSize: 10Mb
   datasource:
     druid:
-      url: jdbc:mysql://localhost:3306/0903-test
+      url: jdbc:mysql://localhost:3306/0905-test
       driver-class-name: com.mysql.jdbc.Driver
       username: root
       password: 123456
